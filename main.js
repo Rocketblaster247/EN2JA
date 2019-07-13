@@ -34,6 +34,12 @@ var load = function (d) {
         });
         console.log(net.toFunction());
         console.log(net.toJSON());
+        document.getElementById("trans").addEventListener("click", function () {
+            var input = document.getElementById("tr").value;
+            var output = net.run(input);
+            document.getElementById("out").innerHTML = escape(input+(output.toString().split("   ")[0])+" = "+output.toString().split("   ")[1]);
+            console.log(output);
+        });
     });
 };
 var xhr = new XMLHttpRequest();
