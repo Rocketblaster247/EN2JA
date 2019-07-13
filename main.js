@@ -17,5 +17,6 @@ var xhr = new XMLHttpRequest();
 xhr.open("GET", "jpn.txt");
 xhr.addEventListener("load", function (x) {
     console.log("Loaded file...");
+    load(this.responseText);
 });
 xhr.send();
