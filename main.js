@@ -1,5 +1,6 @@
 var dataset = [];
 var net = new brain.recurrent.LSTM();
+var iter = 0;
 var trainStream = new brain.TrainStream({
   neuralNetwork: net,
   floodCallback: function() {
@@ -20,8 +21,11 @@ var load = function (d) {
     }
     document.getElementById("train").addEventListener("click", function () {
         console.log("Training...");
-        net.train(dataset.slice(0,parseInt(window.prompt("Training Size:"))), {
-            iterations: 1000,
+        var x = iter;
+        var y = iter + parseInt(window.prompt("Training Size:"));
+        iter = y;
+        net.train(dataset.slice(x, y), {
+            iterations: 20000,
             errorThresh: 0.014,
             log: true,
             logPeriod: 1,
