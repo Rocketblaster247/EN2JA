@@ -10,17 +10,19 @@ var load = function (d) {
         console.log("Missing dependencie 'brain.js'");
         return;
     }
-    console.log("Training...");
-    net.train(dataset, {
-        iterations: 20000,
-        errorThresh: 0.01,
-        log: true,
-        logPeriod: 1,
-        learningRate: 0.9,
-        momentum: 0.1,
-        callback: null,
-        callbackPeriod: 10,
-        timeout: Infinity,
+    document.getElementById("train").addEventListener("click", function () {
+        console.log("Training...");
+        net.train(dataset, {
+            iterations: 20000,
+            errorThresh: 0.01,
+            log: true,
+            logPeriod: 1,
+            learningRate: 0.9,
+            momentum: 0.1,
+            callback: null,
+            callbackPeriod: 10,
+            timeout: Infinity,
+        });
     });
 };
 var xhr = new XMLHttpRequest();
