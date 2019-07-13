@@ -1,7 +1,10 @@
 var dataset = [];
 var load = function (d) {
     console.log("Finding sentences...");
-    dataset = d.toString().split("\n");
+    dataset = d.toString().split("! ").join(" !-n-");
+    dataset = dataset.toString().split(". ").join(" .-n-");
+    dataset = dataset.toString().split("? ").join(" ?-n-");
+    dataset = dataset.toString().split("-n-");
     console.log("Loaded dataset...");
     console.log(dataset);
     if (!brain) {
