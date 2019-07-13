@@ -23,10 +23,10 @@ var load = function (d) {
         iter = y;
         net.train(dataset.slice(x, y), {
             iterations: 1000,
-            errorThresh: 0.05,
+            errorThresh: 0.03,
             log: true,
             logPeriod: 1,
-            learningRate: 0.5,
+            learningRate: 0.2,
             momentum: 0.1,
             callback: null,
             callbackPeriod: 10,
