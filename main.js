@@ -24,7 +24,7 @@ var load = function (d) {
         iter = y;
         net.train(dataset.slice(x, y), {
             iterations: 1000,
-            errorThresh: 0.03,
+            errorThresh: 0.04,
             log: true,
             logPeriod: 1,
             learningRate: 0.5,
