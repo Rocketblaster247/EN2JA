@@ -1,7 +1,6 @@
 var json;
 var dataset = [];
 var net = new brain.recurrent.LSTM();
-net.maxPredictionLength = 200;
 if (json) {
   net.fromJSON(json);
 }
@@ -24,7 +23,7 @@ var load = function (d) {
         iter = y;
         net.train(dataset.slice(x, y), {
             iterations: 1000,
-            errorThresh: 0.04,
+            errorThresh: 0.05,
             log: true,
             logPeriod: 1,
             learningRate: 0.5,
