@@ -7,6 +7,7 @@ if (json) {
 }
 var iter = 0;
 var load = function (d) {
+    d = d.toString().toLowerCase();
     console.log("Finding sentences...");
     dataset = d.toString().split("\t").join("   ").toString().split("\n");
     console.log("Loaded dataset...");
@@ -37,7 +38,7 @@ var load = function (d) {
         document.getElementById("trans").addEventListener("click", function () {
             var input = document.getElementById("tr").value;
             var output = net.run(input);
-            document.getElementById("out").innerHTML = escape(input+(output.toString().split("   ")[0])+" = "+output.toString().split("   ")[1]);
+            document.getElementById("out").innerHTML = input+output;
             console.log(output);
         });
     });
