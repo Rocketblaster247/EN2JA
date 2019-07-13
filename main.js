@@ -6,15 +6,6 @@ if (json) {
   net.fromJSON(json);
 }
 var iter = 0;
-var trainStream = new brain.TrainStream({
-  neuralNetwork: net,
-  floodCallback: function() {
-    flood(trainStream, data);
-  },
-  doneTrainingCallback: function(stats) {
-    // network is done training!  What next?
-  }
-});
 var load = function (d) {
     console.log("Finding sentences...");
     dataset = d.toString().split("\t").join("   ").toString().split("\n");
@@ -31,15 +22,15 @@ var load = function (d) {
         var y = iter + parseInt(window.prompt("Training Size:"));
         iter = y;
         net.train(dataset.slice(x, y), {
-            iterations: 20000,
-            errorThresh: 0.014,
+            iterations: 1000,
+            errorThresh: 0.02,
             log: true,
             logPeriod: 1,
-            learningRate: 0.3,
+            learningRate: 0.5,
             momentum: 0.1,
             callback: null,
             callbackPeriod: 10,
-            timeout: Infinity,
+            timeout: 1000*60,
         });
         console.log(net.toFunction());
         console.log(net.toJSON());
