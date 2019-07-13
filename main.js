@@ -12,7 +12,7 @@ var load = function (d) {
     }
     document.getElementById("train").addEventListener("click", function () {
         console.log("Training...");
-        net.train(dataset, {
+        net.train(dataset.slice(0,parseInt(window.prompt("Training Size:"))), {
             iterations: 20000,
             errorThresh: 0.01,
             log: true,
