@@ -9,3 +9,4 @@ xhr.addEventListener("load", function (x) {
   console.log(this.responseText);
   load(x);
 });
+xhr.send();
