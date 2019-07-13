@@ -14,7 +14,7 @@ var load = function (d) {
         console.log("Training...");
         net.train(dataset.slice(0,parseInt(window.prompt("Training Size:"))), {
             iterations: 20000,
-            errorThresh: 0.01,
+            errorThresh: 0.013,
             log: true,
             logPeriod: 1,
             learningRate: 0.9,
