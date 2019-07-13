@@ -35,6 +35,7 @@ var load = function (d) {
             callbackPeriod: 10,
             timeout: Infinity,
         });
+        console.log(net.toFunction());
     });
 };
 var xhr = new XMLHttpRequest();
