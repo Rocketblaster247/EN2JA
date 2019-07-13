@@ -1,5 +1,10 @@
+var json;
 var dataset = [];
 var net = new brain.recurrent.LSTM();
+net.maxPredictionLength = 200;
+if (json) {
+  net.fromJSON(json);
+}
 var iter = 0;
 var trainStream = new brain.TrainStream({
   neuralNetwork: net,
@@ -36,6 +41,7 @@ var load = function (d) {
             timeout: Infinity,
         });
         console.log(net.toFunction());
+        console.log(net.toJSON());
     });
 };
 var xhr = new XMLHttpRequest();
