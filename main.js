@@ -13,9 +13,9 @@ var load = function (d) {
     console.log("Training...");
     net.train(dataset, {
         iterations: 20000,
-        errorThresh: 0.005,
+        errorThresh: 0.01,
         log: true,
-        logPeriod: 10,
+        logPeriod: 1,
         learningRate: 0.3,
         momentum: 0.1,
         callback: null,
