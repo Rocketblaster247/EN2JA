@@ -1,7 +1,7 @@
 var dataset = [];
 var load = function (d) {
     console.log("Finding sentences...");
-    var sents = d.toString().split("\n");
+    dataset = d.toString().split("\n");
     console.log("Loaded dataset...");
     console.log(dataset);
     if (!brain) {
