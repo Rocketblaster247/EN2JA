@@ -1,6 +1,14 @@
 var dataset = [];
 var net = new brain.recurrent.LSTM();
-
+var trainStream = new brain.TrainStream({
+  neuralNetwork: net,
+  floodCallback: function() {
+    flood(trainStream, data);
+  },
+  doneTrainingCallback: function(stats) {
+    // network is done training!  What next?
+  }
+});
 var load = function (d) {
     console.log("Finding sentences...");
     dataset = d.toString().split("\t").join("   ").toString().split("\n");
@@ -13,8 +21,8 @@ var load = function (d) {
     document.getElementById("train").addEventListener("click", function () {
         console.log("Training...");
         net.train(dataset.slice(0,parseInt(window.prompt("Training Size:"))), {
-            iterations: 20000,
-            errorThresh: 0.013,
+            iterations: 1000,
+            errorThresh: 0.014,
             log: true,
             logPeriod: 1,
             learningRate: 0.3,
