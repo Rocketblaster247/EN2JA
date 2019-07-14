@@ -35,16 +35,16 @@ const trainStream = new brain.TrainStream({
 var xsy = 0;
 
 function readInputs(stream, data) {
-  for (var i = 0; i < 100; i ++) {
-    if (xsy + i < data.length) {
-      stream.write(data[xsy+i]);
+  var x = function () {
+    stream.write(data[xsy].toString());
+    xsy++;
+    if (xsy == data.length) {
+      stream.endInputs();
     }
-  }
-  if (xsy + 100 >= data.length) {
-    stream.endInputs();
-  }
-  xsy += 100;
-  requestAnimationFrame();
+    console.log(Math.floor((xsy/data.length)*100)+"% Done");
+    window.requestAnimationFrame();
+  };
+  x();
 }
 
 
