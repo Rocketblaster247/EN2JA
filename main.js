@@ -22,7 +22,7 @@ var load = function (d) {
         var y = iter + parseInt(window.prompt("Training Size:"));
         iter = y;
         net.train(dataset.slice(x, y), {
-            iterations: 1000,
+            iterations: 100,
             errorThresh: 0.02,
             log: true,
             logPeriod: 1,
