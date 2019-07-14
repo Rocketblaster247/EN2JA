@@ -19,22 +19,14 @@ const trainStream = new brain.TrainStream({
    * Called when the network is done training.
    */
   doneTrainingCallback: function(obj) {
-    console.log(`trained in ${ obj.iterations } iterations with error: ${ obj.error }`);
-
-    const result01 = net.run([0, 1]);
-    const result00 = net.run([0, 0]);
-    const result11 = net.run([1, 1]);
-    const result10 = net.run([1, 0]);
-
-    assert(result01[0] > 0.9);
-    assert(result00[0] < 0.1);
-    assert(result11[0] < 0.1);
-    assert(result10[0] > 0.9);
-
-    console.log('0 XOR 1: ', result01);  // 0.987
-    console.log('0 XOR 0: ', result00);  // 0.058
-    console.log('1 XOR 1: ', result11);  // 0.087
-    console.log('1 XOR 0: ', result10);  // 0.934
+    document.getElementById("trans").addEventListener("click", function () {
+        console.log(net.toFunction());
+        console.log(net.toJSON());
+        var input = document.getElementById("tr").value;
+        var output = net.run(input);
+        document.getElementById("out").innerHTML = input+output;
+        console.log(output);
+    });
   }
 });
 
@@ -90,14 +82,7 @@ var load = function (d) {
             timeout: 1000*60,
         });*/
         readInputs(trainStream, dataset);
-        console.log(net.toFunction());
-        console.log(net.toJSON());
-        document.getElementById("trans").addEventListener("click", function () {
-            var input = document.getElementById("tr").value;
-            var output = net.run(input);
-            document.getElementById("out").innerHTML = input+output;
-            console.log(output);
-        });
+        
     });
 };
 var xhr = new XMLHttpRequest();
