@@ -44,6 +44,7 @@ function readInputs(stream, data) {
     stream.endInputs();
   }
   xsy += 100;
+  requestAnimationFrame();
 }
 
 
