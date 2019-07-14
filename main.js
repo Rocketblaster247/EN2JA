@@ -22,12 +22,12 @@ var load = function (d) {
         var y = iter + parseInt(window.prompt("Training Size:"));
         iter = y;
         net.train(dataset.slice(x, y), {
-            iterations: 100,
+            iterations: 200,
             errorThresh: 0.02,
             log: true,
             logPeriod: 1,
             learningRate: 0.2,
-            momentum: 0.5,
+            momentum: 0.7,
             callback: null,
             callbackPeriod: 10,
             timeout: 1000*60,
