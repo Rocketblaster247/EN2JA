@@ -1,10 +1,9 @@
-//const net = new brain.NeuralNetwork();
-//const xor = [
-//  { input: [0, 0], output: [0]},
-//  { input: [0, 1], output: [1]},
-//  { input: [1, 0], output: [1]},
-//  { input: [1, 1], output: [0]}
-//];
+var json;
+var dataset = [];
+var net = new brain.recurrent.LSTM();
+if (json) {
+  net.fromJSON(json);
+}
 
 const trainStream = new brain.TrainStream({
   neuralNetwork: net,
@@ -47,12 +46,7 @@ function readInputs(stream, data) {
   xsy += 100;
 }
 
-var json;
-var dataset = [];
-var net = new brain.recurrent.LSTM();
-if (json) {
-  net.fromJSON(json);
-}
+
 var iter = 0;
 var load = function (d) {
     d = d.toString().toLowerCase();
