@@ -8,7 +8,7 @@ var iter = 0;
 var load = function (d) {
     d = d.toString().toLowerCase();
     console.log("Finding sentences...");
-    dataset = d.toString().split("\t").join("   ").toString().split("\n");
+    dataset = [d];//dataset = d.toString().split("\t").join("   ").toString().split("\n");
     console.log("Loaded dataset...");
     console.log(dataset);
     if (!brain) {
