@@ -20,7 +20,7 @@ var load = function (d) {
         var x = iter;
         var y = iter + parseInt(window.prompt("Training Size:"));
         iter = y;
-        net.train(dataset.slice(0,iter).join("\t"), {
+        net.train(dataset, {
             iterations: 300,
             errorThresh: 0.02,
             log: true,
