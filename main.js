@@ -11,7 +11,6 @@ var load = function (d) {
     dataset = d.toString().split("\t").join("   ").toString().split("\n");
     console.log("Loaded dataset...");
     console.log(dataset);
-    dataset.sort();
     if (!brain) {
         console.log("Missing dependencie 'brain.js'");
         return;
