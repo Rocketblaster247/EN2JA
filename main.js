@@ -36,7 +36,7 @@ var load = function (d) {
         console.log(net.toJSON());
         document.getElementById("trans").addEventListener("click", function () {
             var input = document.getElementById("tr").value;
-            var output = net.run(input);
+            var output = net.run(input+"   ");
             document.getElementById("out").innerHTML = input+output;
             console.log(output);
         });
