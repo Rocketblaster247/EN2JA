@@ -8,7 +8,7 @@ var iter = 0;
 var load = function (d) {
     d = d.toString().toLowerCase();
     console.log("Finding sentences...");
-    dataset = [d];//dataset = d.toString().split("\t").join("   ").toString().split("\n");
+    dataset = d.toString().split("\t").join("   ").toString().split("\n");
     console.log("Loaded dataset...");
     console.log(dataset);
     if (!brain) {
@@ -20,7 +20,7 @@ var load = function (d) {
         var x = iter;
         var y = iter + parseInt(window.prompt("Training Size:"));
         iter = y;
-        net.train(dataset[0].toString().slice(x, y), {
+        net.train(dataset.slice(0,iter).join("\t"), {
             iterations: 300,
             errorThresh: 0.02,
             log: true,
