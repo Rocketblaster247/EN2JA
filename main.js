@@ -36,7 +36,7 @@ var load = function (d) {
         document.getElementById("trans").addEventListener("click", function () {
             var input = document.getElementById("tr").value;
             var output = net.run(input+"   ");
-            document.getElementById("out").innerHTML = escape("<span>"+input+"</span> = "+output;
+            document.getElementById("out").innerHTML = escape("<span>"+input+"</span> = "+output);
             console.log(output);
         });
     });
